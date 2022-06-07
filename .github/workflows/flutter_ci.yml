@@ -22,5 +22,5 @@ jobs:
          NGROK_REGION: in
 
       - name: Cleanup everything
-        run: /var/root/cleanup
         if: ${{ always() }}
+        run: /var/root/cleanup
