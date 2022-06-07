@@ -1,19 +1,20 @@
 name: CI
 on: workflow_dispatch
+
 jobs:
   build:
     runs-on: macos-latest
     steps:
-   # Install flutter
-    - name: Flutter get
-      uses: subosito/flutter-action@v1
-      with:
-        flutter-version: '2.10.1'
+      # Install flutter
+      - name: Flutter get
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.10.1'
 
-   - uses: actions/checkout@v2
-    - name: Start SSH session
-      uses: luchihoratiu/debug-via-ssh@main
-      with:
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-        SSH_PASS: ${{ secrets.SSH_PASS }}
-        NGROK_REGION: in
+     - uses: actions/checkout@v2
+     - name: Start SSH session
+       uses: luchihoratiu/debug-via-ssh@main
+       with:
+         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+         SSH_PASS: ${{ secrets.SSH_PASS }}
+         NGROK_REGION: in
