@@ -5,8 +5,8 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-     - name: Checkout repository
-       uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
 
      - name: Flutter get
@@ -21,6 +21,6 @@ jobs:
          SSH_PASS: ${{ secrets.SSH_PASS }}
          NGROK_REGION: in
 
-      - name: Cleanup everything
-        if: ${{ always() }}
-        run: /var/root/cleanup
+     - name: Cleanup everything
+       if: ${{ always() }}
+       run: /var/root/cleanup
