@@ -23,6 +23,18 @@ jobs:
           SSH_PASS: ${{ secrets.SSH_PASS }}
           NGROK_REGION: in
 
+      - name: Add madhavth as a username
+        run: |
+          dscl . -create /Users/madhavth
+          dscl . -create /Users/madhavth UserShell /bin/bash
+          dscl . -create /Users/madhavth RealName "Madhav Thapa" 
+          dscl . -create /Users/madhavth UniqueID "510"
+          dscl . -create /Users/madhavth PrimaryGroupID 20
+          dscl . -create /Users/madhavth NFSHomeDirectory /Users/madhavth
+          dscl . -passwd /Users/madhavth password 
+          dscl . -append /Groups/admin GroupMembership madhavth
+        shell: bash
+
       - name: Cleanup everything
         if: ${{ always() }}
         run: sudo /var/root/cleanup
