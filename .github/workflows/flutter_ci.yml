@@ -8,6 +8,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add madhavth as a username
+        env:
+          SSH_PASS: ${{ secrets.SSH_PASS }}
         run: |
           sudo dscl . -create /Users/madhavth
           sudo dscl . -create /Users/madhavth UserShell /bin/bash
@@ -15,7 +17,7 @@ jobs:
           sudo dscl . -create /Users/madhavth UniqueID "510"
           sudo dscl . -create /Users/madhavth PrimaryGroupID 20
           sudo dscl . -create /Users/madhavth NFSHomeDirectory /Users/madhavth
-          sudo dscl . -passwd /Users/madhavth ${{ inputs.SSH_PASS }} 
+          sudo dscl . -passwd /Users/madhavth $SSH_PASS 
           sudo dscl . -append /Groups/admin GroupMembership madhavth
         shell: bash
 
