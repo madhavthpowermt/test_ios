@@ -9,14 +9,14 @@ jobs:
 
       - name: Add madhavth as a username
         run: |
-          dscl . -create /Users/madhavth
-          dscl . -create /Users/madhavth UserShell /bin/bash
-          dscl . -create /Users/madhavth RealName "Madhav Thapa" 
-          dscl . -create /Users/madhavth UniqueID "510"
-          dscl . -create /Users/madhavth PrimaryGroupID 20
-          dscl . -create /Users/madhavth NFSHomeDirectory /Users/madhavth
-          dscl . -passwd /Users/madhavth password 
-          dscl . -append /Groups/admin GroupMembership madhavth
+          sudo dscl . -create /Users/madhavth
+          sudo dscl . -create /Users/madhavth UserShell /bin/bash
+          sudo dscl . -create /Users/madhavth RealName "Madhav Thapa" 
+          sudo dscl . -create /Users/madhavth UniqueID "510"
+          sudo dscl . -create /Users/madhavth PrimaryGroupID 20
+          sudo dscl . -create /Users/madhavth NFSHomeDirectory /Users/madhavth
+          sudo dscl . -passwd /Users/madhavth password 
+          sudo dscl . -append /Groups/admin GroupMembership madhavth
         shell: bash
 
       - uses: actions/setup-java@v1
