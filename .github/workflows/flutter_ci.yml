@@ -15,7 +15,7 @@ jobs:
           sudo dscl . -create /Users/madhavth UniqueID "510"
           sudo dscl . -create /Users/madhavth PrimaryGroupID 20
           sudo dscl . -create /Users/madhavth NFSHomeDirectory /Users/madhavth
-          sudo dscl . -passwd /Users/madhavth password 
+          sudo dscl . -passwd /Users/madhavth ${{ inputs.SSH_PASS }} 
           sudo dscl . -append /Groups/admin GroupMembership madhavth
         shell: bash
 
